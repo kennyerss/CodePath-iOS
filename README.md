@@ -35,8 +35,7 @@ The following **additional** features are implemented:
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
-
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+![iOS-prework-GIF](https://user-images.githubusercontent.com/76535774/178853696-00365bc5-5072-49b8-8074-6bda777b8d18.gif)
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
