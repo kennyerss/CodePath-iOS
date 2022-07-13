@@ -33,9 +33,10 @@ The following **additional** features are implemented:
     - Animates new page with changed tip percentages with stable functionality of calculating tip + total bill amounts
 
 ## Video Walkthrough
-
 Here's a walkthrough of implemented user stories:
-![iOS-prework-GIF](https://user-images.githubusercontent.com/76535774/178853696-00365bc5-5072-49b8-8074-6bda777b8d18.gif)
+
+![iOS-prework-GIF](https://user-images.githubusercontent.com/76535774/178854136-5b02876b-262e-43ab-988b-065f39be5930.gif)
+
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
