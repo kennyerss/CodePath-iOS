@@ -114,13 +114,6 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="tip-test" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9GG-p5-Tjf">
-                                        <rect key="frame" x="314" y="195" width="56" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bnR-fq-VSY">
                                         <rect key="frame" x="186" y="329" width="43" height="16"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -201,7 +194,6 @@
                         <outlet property="maxTipPercentage" destination="nhL-Z3-RpH" id="IUa-9c-jHg"/>
                         <outlet property="minTipPercentage" destination="TXt-8Q-m1X" id="yfN-Vp-Yko"/>
                         <outlet property="splitAmountLabel" destination="pyk-5h-FYg" id="tqe-4V-9U2"/>
-                        <outlet property="testingTip" destination="9GG-p5-Tjf" id="P8a-Iw-MbK"/>
                         <outlet property="tipAmountLabel" destination="iyy-3j-kXx" id="13l-2N-thn"/>
                         <outlet property="tipSliderInfo" destination="OBP-K6-tlr" id="Z48-am-bua"/>
                         <outlet property="totalLabel" destination="QSf-0S-Kxj" id="iKr-rd-R6F"/>

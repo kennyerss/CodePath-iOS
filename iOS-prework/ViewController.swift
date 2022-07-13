@@ -19,7 +19,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var tipAmountLabel: UILabel!
     @IBOutlet weak var totalLabel: UILabel!
     
-    @IBOutlet weak var testingTip: UILabel!
     
     // Initial property values of minTip and maxTip
     var minTip: Double = 0
@@ -105,9 +104,6 @@ class ViewController: UIViewController {
         
         // Update the current percentage value variable
         percentageValueAmount = percentageValue
-        
-        // Update testing-tip label
-        testingTip.text = String(percentageValueAmount)
         
         // Call calculateTip() to get our total amount
         let total = calculateTip()
