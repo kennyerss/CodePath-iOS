@@ -21,16 +21,26 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var testingTip: UILabel!
     
-    // Create text property from settings page
+    // Initial property values of minTip and maxTip
     var minTip: Double = 0
     var maxTip: Double = 20
     
-//    var minimumValue: Float = minTip
+    // Create a step range for tip slider
+    var step: Double = 2
     
-//    var minTip = tipSliderInfo.minimumValue
-//    var maxTip = tipSliderInfo.maximumValue
+    // Create variable for splitAmount as a Double
+    var splitAmount: Double = 0
     
-  
+    // Create variable for percentageValueAmount
+    var percentageValueAmount: Double = 0
+    
+    
+    // Create variables for tip, bill, and total
+    var tipAmount: Double = 0
+    var tipPercentage: Double = 0
+    var bill: Double = 0
+    let total: Double = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -45,9 +55,11 @@ class ViewController: UIViewController {
     
         maxTipPercentage.text = String(format: "%.0f%%", maxTip)
         
+        // Initially display the currentTipPercentage with the minimum tip
         currentTipPercentage.text = minTipPercentage.text
     }
     
+    // Functions to change the minimum and maximum values of slider
     
     func changeMin() -> Double {
         var currMin = Double(tipSliderInfo.minimumValue)
@@ -60,23 +72,26 @@ class ViewController: UIViewController {
         currMax = maxTip
         return currMax
     }
-    
-    
-    // Create a step range for tip slider
-    var step: Double = 5
-    
-    // Create variable for splitAmount as a Double
-    var splitAmount: Double = 0
-    
-    // Create variable for percentageValueAmount
-    var percentageValueAmount: Double = 0
+
+    func calculateTip() -> Double {
+        // Get the bill amount
+        bill = Double(billAmountTextField.text!) ?? 0
+        
+        // Find the tipPercentage 
+        tipPercentage = Double(percentageValueAmount) / 100
+        
+        tipAmount = bill * tipPercentage
+        let total = bill + tipAmount
+        
+        return total
+    }
     
     @IBAction func tipSliderPercentage(_ sender: UISlider) {
+        // Chaning the slider maxmimum and min values
         tipSliderInfo.maximumValue = Float(changeMax())
         tipSliderInfo.minimumValue = Float(changeMin())
-//        tipSliderInfo.minimumValue: Double = minTip
-//        tipSliderInfo.maximumValue: Double = maxTip
         
+        // Initialize Double percentageValue to round out float
         var percentageValue: Double = Double(sender.value)
         
         // Update label when slider is sliding
@@ -88,17 +103,16 @@ class ViewController: UIViewController {
         // Update currentTipPercentage label
         currentTipPercentage.text = String(format:"%.0f%%", percentageValue)
         
+        // Update the current percentage value variable
         percentageValueAmount = percentageValue
         
         // Update testing-tip label
         testingTip.text = String(percentageValueAmount)
         
-        let bill = Double(billAmountTextField.text!) ?? 0
-        
-        let percentage = percentageValueAmount / 100
-        let tip = bill * percentage
-        let total = bill + tip
-        
+        // Call calculateTip() to get our total amount
+        let total = calculateTip()
+
+        // Make sure that when splitAmount is 0, nothing changes to the totalLabel.text
         if splitAmount == 0 {
             // Update total amount
             totalLabel.text = String(format: "$%.2f", total)
@@ -108,14 +122,13 @@ class ViewController: UIViewController {
         totalLabel.text = String(format: "$%.2f", total / (splitAmount + 1))
         
         // Update tip text
-        tipAmountLabel.text = String(format: "$%.2f", tip)
+        tipAmountLabel.text = String(format: "$%.2f", tipAmount)
         
     }
     
     @IBAction func decreaseSplitAmount(_ sender: UIButton) {
         
         // If splitAmount is already 0, then nothing shoud happen
-        
         if splitAmount == 0 {
             splitAmount = 0
         }
@@ -128,20 +141,15 @@ class ViewController: UIViewController {
         // Update splitAmount label
         splitAmountLabel.text = String(format: "%.0f", splitAmount)
         
-        // Get bill from billAmountTextField
-        let bill = Double(billAmountTextField.text!) ?? 0
-        
-        // Get the total tip amount
-        let percentage = percentageValueAmount / 100
-        let tip = bill * percentage
-        let total = bill + tip
+        // Call calculateTip() to get our total amount
+        let total = calculateTip()
     
         if splitAmount == 0 {
             // Update total amount
             totalLabel.text = String(format: "$%.2f", total)
         }
         
-        // Update total amount
+        // Otherwise, update total amount divided
         totalLabel.text = String(format: "$%.2f", total / (splitAmount + 1))
     }
     
@@ -153,21 +161,17 @@ class ViewController: UIViewController {
         // Update split amount label
         splitAmountLabel.text = String(format: "%.0f", splitAmount)
         
-        let bill = Double(billAmountTextField.text!) ?? 0
-        
-        let percentage = percentageValueAmount / 100
-        let tip = bill * percentage
-        let total = bill + tip
-        
+        // Call calculateTip() to get our total amount
+        let total = calculateTip()
+    
         if splitAmount == 0 {
             // Update total amount
             totalLabel.text = String(format: "$%.2f", total)
         }
-
-        // Update total amount
+        
+        // Otherwise, update total amount divided by splitAmount
         totalLabel.text = String(format: "$%.2f", total / (splitAmount + 1))
         
-
     }
     
     

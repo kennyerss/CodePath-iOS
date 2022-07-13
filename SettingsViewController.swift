@@ -36,15 +36,17 @@ class SettingsViewController: UIViewController {
         let newMin = Double(newMinimumTip.text!) ?? 0
         let newMax = Double(newMaximumTip.text!) ?? 0
         
-        // New range of the min and max values
+        // Find the interval between maximum and minimum tips
         let difference: Double = newMax - newMin
         
+        // New range of the min and max values
         let range = Double(newRange.text!) ?? 0
         controller.minTip = newMin
         controller.maxTip = newMax
         
         // Show alert if unequal range between the difference of intervals and range
         if (Int(difference) % Int(range)) != 0 {
+            // Initialize showingAlert to true
             showingAlert = true
             if showingAlert != false{
                 let alert = UIAlertController(title: "Error in interval range", message: "Difference between maximum and minimum tip has to be divisible by the range!", preferredStyle: .alert)
@@ -57,16 +59,8 @@ class SettingsViewController: UIViewController {
         // Else change the step range as needed
         controller.step = range
         
+        // Animated presentation of the controller with changed minimum and maximum values
         present(controller, animated: true, completion: nil)
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
