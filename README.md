@@ -24,7 +24,7 @@ The following **additional** features are implemented:
 
 - Added split button to decrease/increase number of people to split the total bill with
 - Changed background colors of main view controller
-- Created slider for tip percentages
+- Created slider for tip percentages with initial range of 2 and tip percentages from 0-20%
 - Made bill amount first responder 
 - Changed navigation bar to arrow image
 - Settings page 
@@ -45,6 +45,8 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 Describe any challenges encountered while building the app.
 
 I had a lot of challenges while building this app, most of which were solved through Googling specific questions on StackOverflow, Youtube videos, exploring the Swift Documentation, and just experimenting on my own. Some of my major obstacles were implementing my tip percentages slider, developing my three main settings (being able to change the minimum and maximum tips as well as its ranges), and accessing data between different view controllers. My most significant challenge in implementing the slider was accessing its values in scope so that the current value of the slider will update both the tip and total amount. Following this implementation was then accessing the slider's minimum and maximum values through the SettingsViewController and changing its values — I learned that I could manipulate this information using controller properties, and I was able to change both the loaded display of the animated "APPLY CHANGES" button to properly reflect the user's changes. Lastly, I wanted to make sure that the interval of the slider was always even, thus I added an alert if the user were to change the minimum and maximum tips that was not divisibly the range value they had given. This helped make the minimum and maximum slider percentages be equally spaced and does not go over each min and max if the range was not divisible. 
+
+In the future, I'd like to optimize my code and remove duplicated work (such as the calculating total tip) 
 
 ## License
 
